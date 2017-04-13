@@ -1,0 +1,27 @@
+
+<!-- set css in application.html -->
+<% landmarks = Landmark.all %>
+
+<!-- get all the landmarks -->
+<div class="container">
+    <div class="page-header">
+        <h1>Campus Landmarks</h1>
+    </div>
+
+<!-- display them in a loop -->
+    <% landmarks.each do |landmark|%>
+    <div class="row">
+        <div class="col-md-4">
+            <a href= <%= "/guide/" + landmark.id.to_s %>>
+                <img class="img-responsive" src= <%= landmark.imageUrl %>>
+      
+            </a>
+        </div>
+        <div class="col-md-8">
+            <h3>
+                <a href=<%= "/guide/" + landmark.id.to_s %>><%= landmark.name %></a>
+            </h3>
+        </div>
+    </div>
+    <% end %>
+</div>

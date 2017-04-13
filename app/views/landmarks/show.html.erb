@@ -1,0 +1,33 @@
+
+<% landmark = Landmark.find_by(params["id"].to_i) %>
+
+<!-- check if landmark is not nil -->
+<% if landmark != nil %>
+<div class="container">
+    <div class="page-header">
+        <h1>
+            <a href="/guide"><%= landmark.name %></a>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2><%= landmark.name %></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img-responsive" src=<%= landmark.imageUrl %>>
+    
+        </div>
+        <div class="col-md-6">
+            <p class="lead">
+          <%= landmark.desc %>
+      </p>
+        </div>
+    </div>
+</div>
+
+<% else %>
+<h1> No such id </h1>
+
+<% end %>
